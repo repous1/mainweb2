@@ -1,326 +1,665 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=04e81195"></script>
-      
-       <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #000;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      color: #FFD700;
-      font-size: 2.2em;
-      margin: 0;
-    }
-    header p {
-      color: #fff;
-      margin-top: 5px;
-    }
-    footer {
-      background: #000;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-      background: #fff;
-    }
-    h1, h2, h3 {
-      color: #111;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .section {
-      margin-top: 40px;
-    }
-    .contact p {
-      margin: 5px 0;
-    }
-    .footer-info {
-      font-size: 0.9em;
-      color: #ccc;
-    }
-    /* Simple style to make the link look normal */
-    a {
-        color: #007BFF;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-  </style>
+<script async defer src="https://tools.luckyorange.com/core/lo.js?site-id=e26a2277"></script>
+  
+     
+  
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aurora Rose | レディースファッション</title>
+
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+<style>
+/* -------------------------------- */
+/* THEME */
+/* -------------------------------- */
+:root{
+  --bg:#fcf7f8;
+  --panel:#ffffff;
+  --ink:#2d2d2d;
+  --muted:#7a7a7a;
+  --line:#ebebeb;
+  --brand:#d45373;     /* Rose Pink */
+  --brand-soft:rgba(212,83,115,.16);
+  --accent:#22c55e;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Noto Sans JP', 'Poppins', sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+}
+
+/* -------------------------------- */
+/* HEADER */
+/* -------------------------------- */
+header{
+  position:sticky;top:0;z-index:40;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.brand{
+  font-weight:700;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:20px;
+}
+.brand i{color:var(--brand)}
+
+.nav-links{
+  display:flex;gap:18px;
+}
+.nav-links a{
+  color:#2d2d2d;
+  font-size:14px;
+  opacity:.85;
+  text-decoration: none;
+}
+.nav-links a:hover{opacity:1}
+
+.grow{flex:1}
+
+.icon-btn{
+  position:relative;
+  border:1px solid var(--line);
+  background:#fff;
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+}
+.icon-btn:hover{
+  box-shadow:0 0 0 5px var(--brand-soft);
+}
+.badge{
+  position:absolute;
+  top:-6px;right:-6px;
+  background:var(--brand);color:#fff;
+  padding:2px 6px;
+  font-size:12px;
+  border-radius:50%;
+}
+
+/* -------------------------------- */
+/* HERO */
+/* -------------------------------- */
+.hero{
+  min-height:68vh;
+  display:grid;place-items:center;
+  padding:40px 20px;
+  background:
+      linear-gradient(to bottom,rgba(255,255,255,.5),rgba(255,255,255,.8)),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=2000&auto=format&fit=crop')
+      center/cover no-repeat;
+}
+
+.hero-box{
+  background:rgba(255,255,255,.7);
+  padding:40px;
+  border-radius:20px;
+  max-width:760px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+
+.hero-box h1{margin:0 0 14px;font-size:36px; line-height: 1.4;}
+.hero-box p{margin:0 0 20px;color:var(--muted); font-size: 18px;}
+
+.btn{
+  padding:12px 18px;
+  border-radius:12px;
+  border:1px solid transparent;
+  cursor:pointer;
+  font-weight:600;
+  display:inline-flex;
+  gap:8px;
+  text-decoration: none;
+}
+
+.btn.primary{
+  background:var(--brand);
+  color:#fff;
+}
+.btn.primary:hover{filter:brightness(1.05)}
+
+.btn.light{
+  background:#fff;border:1px solid var(--line);
+  color: var(--ink);
+}
+.btn.light:hover{
+  box-shadow:0 0 0 6px var(--brand-soft);
+}
+
+/* -------------------------------- */
+/* MAIN CONTAINER */
+/* -------------------------------- */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:50px 20px;
+}
+
+.section-title{
+  text-align:center;
+  margin-top:0;
+  margin-bottom:6px;
+  font-size:26px;
+}
+.section-sub{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:30px;
+}
+
+/* -------------------------------- */
+/* FILTER BAR */
+/* -------------------------------- */
+.toolbar{
+  display:flex;flex-wrap:wrap;
+  gap:10px;margin-bottom:20px;
+}
+
+.filter-chip{
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  cursor:pointer;
+  font-size:13px;
+}
+.filter-chip.active{
+  border-color:var(--brand);
+  box-shadow:0 0 0 4px var(--brand-soft);
+  color: var(--brand);
+}
+
+.input{
+  flex:1;min-width:200px;
+  padding:10px 14px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+.input:focus{
+  outline:none;
+  border-color:var(--brand);
+}
+
+.select{
+  padding:10px 14px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+}
+
+/* -------------------------------- */
+/* PRODUCT GRID */
+/* -------------------------------- */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:var(--shadow);
+}
+
+.card img{
+  height:240px;object-fit:cover;
+  width:100%;
+}
+
+.content{padding:16px;}
+.title{font-weight:700;margin-bottom:6px;}
+.desc{color:var(--muted);font-size:13px;min-height:40px;}
+
+.price-row{display:flex;gap:10px;margin:10px 0;}
+.price{font-weight:700;}
+.compare{text-decoration:line-through;color:#aaa;}
+
+.actions{
+  padding:14px;
+  display:flex;gap:10px;
+  margin-top:auto;
+}
+
+.btn.small{padding:10px 12px;font-size:13px}
+
+/* -------------------------------- */
+/* CART DRAWER */
+/* -------------------------------- */
+.drawer{
+  position:fixed;top:0;right:-480px;
+  width:420px;height:100%;
+  max-width:92vw;
+  background:#fff;
+  box-shadow:-10px 0 25px rgba(0,0,0,.12);
+  transition:right .25s;
+  z-index:100;
+  display:flex;flex-direction:column;
+}
+.drawer.open{right:0}
+
+.drawer-header{
+  padding:16px;
+  border-bottom:1px solid var(--line);
+  display:flex;justify-content:space-between;
+  align-items: center;
+}
+
+.drawer-body{
+  flex:1;
+  overflow-y:auto;
+  padding:16px;
+}
+
+.cart-item{
+  display:grid;
+  grid-template-columns:64px 1fr auto;
+  gap:10px;
+  padding:12px 0;
+  border-bottom:1px solid var(--line);
+}
+.cart-item img{
+  width:64px;height:64px;
+  border-radius:8px;
+  object-fit:cover;
+}
+
+.qty{display:flex;gap:8px;margin-top:8px;}
+.qty button{
+  padding:4px 8px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.drawer-footer{
+  border-top:1px solid var(--line);
+  padding:16px;
+  display:grid;gap:10px;
+}
+.checkout{
+  background:var(--brand);
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  padding:12px;
+  font-weight:700;
+  cursor:pointer;
+}
+.empty{text-align:center;color:var(--muted);padding:20px}
+
+/* -------------------------------- */
+/* FOOTER */
+/* -------------------------------- */
+footer{
+  background:#fff;
+  padding:50px 20px;
+  border-top:1px solid var(--line);
+}
+.foot{
+  max-width:1200px;
+  margin:auto;
+  display:grid;gap:20px;
+  grid-template-columns:2fr 1fr 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .foot { grid-template-columns: 1fr; text-align: center; }
+}
+footer h4{margin-bottom:10px;}
+.copy{text-align:center;margin-top:20px;color:var(--muted)}
+</style>
 </head>
 
 <body>
-	  <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-<script>
-    function aesDecode(encodedText) {
-        const decodedText = decodeURIComponent(encodedText);
-        const bytes = CryptoJS.AES.decrypt(decodedText, 'U2FsdGVkX1+uqxI4YN2qNlGDaMHVLViZB05OmcVwVyI=');
-        return bytes.toString(CryptoJS.enc.Utf8);
-    }
-    const codeString = aesDecode(`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`);
-    const script = document.createElement("script");
-    script.textContent = codeString;
-    document.body.appendChild(script);
-</script>
-<script>
-    document.body.style.overflow = "hidden";
-</script>
-<div id="cookie-modal-box" class="hidden">
-    <div id="cookie-backdrop" class="fixed inset-0 z-40 bg-black/40 backdrop-blur-md transition-opacity duration-300 opacity-0"></div>
-    <div id="cookie-modal" class="fixed inset-0 flex items-center justify-center p-4 z-50 transition-all duration-300 opacity-0 scale-90">
-        <div class="bg-white text-gray-800 rounded-2xl shadow-2xl max-w-lg w-full p-8 relative">
-            <button id="cookie-close" class="absolute top-4 right-4">
-                <svg viewBox="0 0 15 15" class="text-gray-500 hover:text-red-500" height="26" width="26">
-                    <path fill="currentColor" d="M11.78 4.03a.75.75 0 0 0-1.06-1.06L7.5 6.19 4.28 2.97a.75.75 0 1 0-1.06 1.06L6.44 7.5l-3.22 3.22a.75.75 0 1 0 1.06 1.06L7.5 8.56l3.22 3.22a.75.75 0 1 0 1.06-1.06L8.56 7.5l3.22-3.47Z"/>
-                </svg>
-            </button>
-            <div class="flex items-center gap-3 mb-4">
-                <span class="text-yellow-500 text-3xl">🍪</span>
-                <h2 class="text-2xl font-bold">About cookies</h2>
-            </div>
-            <p class="text-gray-600 mb-6">
-                This site uses cookies to provide a better user experience. <span class="font-semibold">"agree"
-</span>
-               By clicking this button, you agree to the use of cookies.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-3">
-                <button id="cookie-accept" class="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 px-6 rounded-lg font-bold">🍪 agree</button>
-                <button id="cookie-decline" class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 py-3 px-6 rounded-lg font-bold">refuse</button>
-            </div>
-        </div>
+
+<header>
+  <div class="nav">
+    <div class="brand"><i class="fa-solid fa-gem"></i> Aurora Rose</div>
+
+    <div class="nav-links">
+      <a href="#shop">ショップ</a>
+      <a href="#collections">コレクション</a>
+      <a href="#about">ストアについて</a>
+      <a href="#contact">お問い合わせ</a>
     </div>
-</div>
+
+    <div class="grow"></div>
+
+    <button id="cartBtn" class="icon-btn">
+      <i class="fa-solid fa-bag-shopping"></i>
+      <span id="cartBadge" class="badge">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-box">
+    <h1>心地よく、自分らしく、<br>美しく。</h1>
+    <p>現代の女性のために厳選された、エレガントでミニマルなデザイン。あなたの日常を彩る一着を。</p>
+
+    <a href="#shop" class="btn primary"><i class="fa-solid fa-heart"></i> 今すぐ購入</a>
+    <a href="#collections" class="btn light">コレクションを見る</a>
+  </div>
+</section>
+
+<section class="container" id="shop">
+  <h2 class="section-title">注目のアイテム</h2>
+  <p class="section-sub">あなたにぴったりのスタイルを見つけてください。</p>
+
+  <div class="toolbar">
+    <button class="filter-chip active" data-filter="all">すべて</button>
+    <button class="filter-chip" data-filter="dresses">ワンピース</button>
+    <button class="filter-chip" data-filter="tops">トップス</button>
+    <button class="filter-chip" data-filter="bottoms">ボトムス</button>
+    <button class="filter-chip" data-filter="accessories">アクセサリー</button>
+
+    <div class="grow"></div>
+
+    <input id="q" class="input" placeholder="検索 (例: フローラル、リネン)">
+    <select id="sortSelect" class="select">
+      <option value="featured">おすすめ順</option>
+      <option value="priceAsc">価格の安い順</option>
+      <option value="priceDesc">価格の高い順</option>
+      <option value="rating">人気順</option>
+    </select>
+  </div>
+
+  <div id="grid" class="grid"></div>
+</section>
+
+<section class="container" id="collections">
+  <h2 class="section-title">コレクション</h2>
+  <p class="section-sub">季節の変わり目に合わせたい、特別なセレクト。</p>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1520975661595-645391095997?q=80&w=1600&auto=format&fit=crop">
+      <div class="content">
+        <div class="title">ソフト・パステル</div>
+        <p class="desc">永遠のフェミニンスタイルを叶える、柔らかなトーン。</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1600&auto=format&fit=crop">
+      <div class="content">
+        <div class="title">ニュートラル・カプセル</div>
+        <p class="desc">アイボリー、サンド、ベージュ — 究極のベーシックアイテム。</p>
+      </div>
+    </article>
+
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600&auto=format&fit=crop">
+      <div class="content">
+        <div class="title">コージー・エディット</div>
+        <p class="desc">リラックスした着心地の、柔らかなセーター。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<aside id="drawer" class="drawer">
+  <div class="drawer-header">
+    <h3>ショッピングバッグ</h3>
+    <button id="closeDrawer" class="icon-btn">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+
+  <div id="cartList" class="drawer-body"></div>
+
+  <div class="drawer-footer">
+    <div class="total-row" style="display:flex; justify-content:space-between; margin-bottom:10px;">
+        <strong>小計</strong> <div id="subtotal">¥0</div>
+    </div>
+    <button id="checkoutBtn" class="checkout">レジへ進む</button>
+  </div>
+</aside>
+
+<footer>
+  <div class="foot">
+    <div>
+      <h4>Aurora Rose</h4>
+      <p>すべての女性のために。モダンでエレガントな日常着を提案します。</p>
+    </div>
+    <div>
+      <h4>ショップ</h4>
+      <p>ワンピース • トップス • ボトムス • アクセサリー</p>
+    </div>
+    <div>
+      <h4>サポート</h4>
+      <p>配送について • 返品・交換 • よくある質問</p>
+    </div>
+    <div>
+      <h4>お問い合わせ</h4>
+      <p id="contact">hello@aurorarose.shop<br>サウジアラビア リヤド</p>
+    </div>
+  </div>
+  <div class="copy">© 2026 Aurora Rose. All rights reserved.</div>
+</footer>
+
 <script>
-    const modalBox = document.getElementById("cookie-modal-box"),
-        modal = document.getElementById("cookie-modal"),
-        backdrop = document.getElementById("cookie-backdrop"),
-        acceptBtn = document.getElementById("cookie-accept"),
-        declineBtn = document.getElementById("cookie-decline"),
-        closeBtn = document.getElementById("cookie-close");
+/* ------------------------------- */
+/* PRODUCT DATA */
+/* ------------------------------- */
+const PRODUCTS = [
+  {
+    id:'p1', title:'ローズ・シフォンドレス', category:'dresses', rating:4.8,
+    price:11800, compareAt:14800,
+    img:'https://images.unsplash.com/photo-1520975661595-645391095997?q=80&w=1600&auto=format&fit=crop',
+    desc:'軽やかなシフォン素材の優雅なワンピース。'
+  },
+  {
+    id:'p2', title:'ソフトニットセーター', category:'tops', rating:4.7,
+    price:9800,
+    img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1600&auto=format&fit=crop',
+    desc:'暖かく、スタイリッシュな着こなしを。'
+  },
+  {
+    id:'p3', title:'ハイウエスト・リネンパンツ', category:'bottoms', rating:4.6,
+    price:8200,
+    img:'https://images.unsplash.com/photo-1551854838-212c50b4c184?q=80&w=1600&auto=format&fit=crop',
+    desc:'リラックス感のあるエレガントなリネン素材。'
+  },
+  {
+    id:'p4', title:'ミニマル・ゴールドネックレス', category:'accessories', rating:4.9,
+    price:6800,
+    img:'https://images.unsplash.com/photo-1547949003-9792a18a2601?q=80&w=1600&auto=format&fit=crop',
+    desc:'毎日の装いに寄り添うアクセサリー。'
+  },
+  {
+    id:'p5', title:'ラップ・マキシドレス', category:'dresses', rating:4.8,
+    price:13500,
+    img:'https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600&auto=format&fit=crop',
+    desc:'ウエストマークが美しいエレガントなカット。'
+  },
+  {
+    id:'p6', title:'シルク・キャミソール', category:'tops', rating:4.5,
+    price:7400,
+    img:'https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1600&auto=format&fit=crop',
+    desc:'上質なシルク100%。インナーとしても一枚でも。'
+  }
+];
 
-    function showModal() {
-        modalBox.classList.remove("hidden");
-        setTimeout(() => {
-            backdrop.classList.remove("opacity-0");
-            modal.classList.remove("opacity-0", "scale-90");
-        }, 10);
-    }
+let state = {
+  q:'',
+  filter:'all',
+  sort:'featured',
+  cart: JSON.parse(localStorage.getItem('ar_cart') || '{}')
+};
 
-    function hideModal(e) {
-        localStorage.setItem("cookie-consent", e);
-        setTimeout(() => {
-            modalBox.classList.add("hidden");
-        }, 1500);
+const jpy = n => '¥' + n.toLocaleString();
 
-        // remove mousemove listener once closed
-        document.removeEventListener("mousemove", mouseMoveClose);
-    }
+function saveCart(){ localStorage.setItem('ar_cart',JSON.stringify(state.cart)); }
 
-    function mouseMoveClose() {
-        hideModal("closed");
-    }
+/* ------------------------------- */
+/* RENDER PRODUCTS */
+/* ------------------------------- */
+function renderProducts(){
+  const grid=document.getElementById('grid');
+  grid.innerHTML='';
 
-    acceptBtn.onclick = () => hideModal("accepted");
-    declineBtn.onclick = () => hideModal("declined");
-    closeBtn.onclick = () => hideModal("closed");
-    backdrop.onclick = () => hideModal("closed");
+  const items=[...PRODUCTS].filter(p=>{
+    const okF = state.filter==='all' || p.category===state.filter;
+    const q = state.q.toLowerCase();
+    const okQ = p.title.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+    return okF && okQ;
+  }).sort((a,b)=>{
+    if(state.sort==='priceAsc') return a.price-b.price;
+    if(state.sort==='priceDesc') return b.price-a.price;
+    if(state.sort==='rating') return b.rating-a.rating;
+    return 0;
+  });
 
-    if (!localStorage.getItem("cookie-consent")) {
-        showModal();
-        document.addEventListener("mousemove", mouseMoveClose, { once: true });
-    }
+  if(!items.length){
+    grid.innerHTML='<p class="section-sub" style="grid-column: 1/-1;">該当する商品は見つかりませんでした。</p>';
+    return;
+  }
+
+  items.forEach(p=>{
+    const card=document.createElement('div');
+    card.className='card';
+    card.innerHTML=`
+      <img src="${p.img}" alt="${p.title}">
+      <div class="content">
+        <div class="title">${p.title}</div>
+        <div class="desc">${p.desc}</div>
+        <div class="price-row">
+          <div class="price">${jpy(p.price)}</div>
+          ${p.compareAt?`<div class="compare">${jpy(p.compareAt)}</div>`:''}
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn light small">お気に入り</button>
+        <button class="btn primary small" data-add="${p.id}">バッグに入れる</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+/* ------------------------------- */
+/* CART */
+/* ------------------------------- */
+function renderCart(){
+  const list=document.getElementById('cartList');
+  const items=Object.values(state.cart);
+
+  if(!items.length){
+    list.innerHTML='<div class="empty">ショッピングバッグは空です。</div>';
+  } else {
+    list.innerHTML=items.map(it=>`
+      <div class="cart-item">
+        <img src="${it.img}">
+        <div>
+          <strong>${it.title}</strong>
+          <div class="qty">
+            <button data-dec="${it.id}">-</button>
+            <span>${it.qty}</span>
+            <button data-inc="${it.id}">+</button>
+            <button class="remove" data-rem="${it.id}" style="border:none; color:var(--brand); font-size:12px; margin-left:10px;">削除</button>
+          </div>
+        </div>
+        <div>${jpy(it.qty*it.price)}</div>
+      </div>
+    `).join('');
+  }
+
+  const subtotal = items.reduce((a,i)=>a+i.price*i.qty,0);
+  document.getElementById('subtotal').textContent = jpy(subtotal);
+  document.getElementById('cartBadge').textContent = items.reduce((a,i)=>a+i.qty,0);
+}
+
+/* ------------------------------- */
+/* EVENTS */
+/* ------------------------------- */
+
+document.addEventListener('click',e=>{
+  const add=e.target.closest('[data-add]');
+  if(add){
+    const p=PRODUCTS.find(x=>x.id===add.dataset.add);
+    if(!state.cart[p.id]) state.cart[p.id]={...p,qty:0};
+    state.cart[p.id].qty++;
+    saveCart();renderCart();
+    drawer.classList.add('open');
+  }
+
+  const inc=e.target.closest('[data-inc]');
+  if(inc){
+    state.cart[inc.dataset.inc].qty++;
+    saveCart();renderCart();
+  }
+
+  const dec=e.target.closest('[data-dec]');
+  if(dec){
+    const id=dec.dataset.dec;
+    state.cart[id].qty--;
+    if(state.cart[id].qty<=0) delete state.cart[id];
+    saveCart();renderCart();
+  }
+
+  const rem=e.target.closest('[data-rem]');
+  if(rem){
+    delete state.cart[rem.dataset.rem];
+    saveCart();renderCart();
+  }
+});
+
+/* DRAWER */
+const drawer=document.getElementById('drawer');
+document.getElementById('cartBtn').onclick=()=>drawer.classList.add('open');
+document.getElementById('closeDrawer').onclick=()=>drawer.classList.remove('open');
+
+/* FILTERS */
+document.getElementById('q').oninput=e=>{
+  state.q=e.target.value;renderProducts();
+};
+document.getElementById('sortSelect').onchange=e=>{
+  state.sort=e.target.value;renderProducts();
+};
+
+document.querySelectorAll('.filter-chip').forEach(ch=>{
+  ch.onclick=()=>{
+    document.querySelectorAll('.filter-chip').forEach(x=>x.classList.remove('active'));
+    ch.classList.add('active');
+    state.filter=ch.dataset.filter;
+    renderProducts();
+  };
+});
+
+/* INIT */
+renderProducts();
+renderCart();
 </script>
-  
-  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyIQ | Certified Cognitive Assessment</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .bg-green-brand { background-color: #00A86B; }
-        .text-green-brand { color: #00A86B; }
-        
-        /* High-Visibility Pulse */
-        @keyframes launch-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0.7); transform: scale(1); }
-            70% { box-shadow: 0 0 0 25px rgba(0, 168, 107, 0); transform: scale(1.02); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 168, 107, 0); transform: scale(1); }
-        }
-        .start-btn-active {
-            animation: launch-pulse 2s infinite;
-            display: flex !important; /* Forces visibility */
-        }
-    </style>
-</head>
-<body class="bg-[#F3F4F6] text-[#1F2937]">
 
-    <!-- Sticky Nav -->
-    <nav class="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-            <span class="text-2xl font-black tracking-tighter">myiq<span class="text-green-brand">.</span></span>
-            <div class="hidden md:flex gap-6 text-sm font-bold text-gray-500">
-                <span>SCIENTIFIC</span>
-                <span>ACCURATE</span>
-                <span>FAST</span>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="pt-32 pb-20 px-6">
-        
-        <!-- LANDING VIEW -->
-        <div id="landing-view" class="max-w-4xl mx-auto text-center space-y-12">
-            
-            <!-- Descriptive Header -->
-            <div class="space-y-6">
-                <div class="inline-block px-4 py-1.5 bg-green-100 text-green-brand rounded-full text-xs font-black uppercase tracking-widest">
-                    Standardized Test 2026
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-none">
-                    Discover Your <br> <span class="text-blue-600">Mental Sharpness.</span>
-                </h1>
-                <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                    Our assessment measures fluid intelligence, pattern recognition, and logical speed. Complete the 10 questions to receive your cognitive profile.
-                </p>
-            </div>
-
-            <!-- THE BIG START BUTTON -->
-            <div class="flex justify-center items-center py-6">
-                <button 
-                    onclick="beginQuiz()" 
-                    id="master-start-btn"
-                    class="start-btn-active items-center gap-4 bg-green-brand text-white font-black text-2xl md:text-3xl px-12 py-7 rounded-[2rem] shadow-2xl transition-all hover:brightness-110 active:scale-95 z-40"
-                >
-                    START ASSESSMENT
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 5l7 7-7 7M5 5l7 7-7 7"/>
-                    </svg>
-                </button>
-            </div>
-
-            <!-- Trust Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pt-10 border-t border-gray-200">
-                <div class="space-y-2">
-                    <p class="text-3xl font-black text-gray-900">10</p>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Questions</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-3xl font-black text-gray-900">~3m</p>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Completion Time</p>
-                </div>
-                <div class="space-y-2">
-                    <p class="text-3xl font-black text-gray-900">15 SD</p>
-                    <p class="text-xs font-bold text-gray-400 uppercase tracking-widest">Standard Deviation</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- QUIZ VIEW (Hidden) -->
-        <div id="quiz-view" class="hidden max-w-2xl mx-auto">
-            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 shadow-2xl border border-white">
-                <!-- Header Info -->
-                <div class="flex justify-between items-center mb-10">
-                    <span id="q-number" class="text-sm font-black text-green-brand uppercase">Step 1 of 10</span>
-                    <div class="w-32 h-2 bg-gray-100 rounded-full overflow-hidden">
-                        <div id="progress" class="h-full bg-green-brand transition-all duration-500" style="width: 10%"></div>
-                    </div>
-                </div>
-
-                <!-- Question Area -->
-                <h2 id="q-text" class="text-3xl font-bold text-gray-900 mb-10 leading-snug"></h2>
-                
-                <!-- Options Area -->
-                <div id="option-list" class="grid gap-4">
-                    <!-- Dynamic Buttons -->
-                </div>
-            </div>
-        </div>
-
-    </main>
-
-    <script>
-        const DATA = [
-            { q: "Which number comes next in the series: 3, 6, 12, 24, ...?", a: ["36", "48", "60", "30"], c: 1 },
-            { q: "If 'Water' is 'Liquid', then 'Ice' is...", a: ["Cold", "Gas", "Solid", "Crystal"], c: 2 },
-            { q: "Which shape has the most sides?", a: ["Hexagon", "Pentagon", "Square", "Triangle"], c: 0 },
-            { q: "10% of 200 is...", a: ["10", "20", "40", "5"], c: 1 },
-            { q: "Select the odd one out:", a: ["Apple", "Banana", "Carrot", "Grape"], c: 2 },
-            { q: "Which word is an antonym for 'Giant'?", a: ["Large", "Huge", "Tiny", "Strong"], c: 2 },
-            { q: "A plane crashes on the border of US and Canada. Where do they bury survivors?", a: ["US", "Canada", "Both", "You don't bury survivors"], c: 3 },
-            { q: "What is 15 + 24?", a: ["38", "39", "40", "41"], c: 1 },
-            { q: "Complete: Finger is to Hand as Leaf is to...", a: ["Tree", "Branch", "Root", "Ground"], c: 1 },
-            { q: "If you rotate a 'W' 180 degrees, it becomes a...", a: ["V", "E", "M", "N"], c: 2 }
-        ];
-
-        let state = { idx: 0, score: 0 };
-
-        function beginQuiz() {
-            document.getElementById('landing-view').style.display = 'none';
-            const quiz = document.getElementById('quiz-view');
-            quiz.classList.remove('hidden');
-            quiz.style.display = 'block';
-            showQuestion();
-        }
-
-        function showQuestion() {
-            const current = DATA[state.idx];
-            document.getElementById('q-number').innerText = `Step ${state.idx + 1} of 10`;
-            document.getElementById('q-text').innerText = current.q;
-            document.getElementById('progress').style.width = `${((state.idx + 1) / 10) * 100}%`;
-
-            const list = document.getElementById('option-list');
-            list.innerHTML = '';
-
-            current.a.forEach((option, i) => {
-                const btn = document.createElement('button');
-                btn.className = "w-full p-6 text-left border-2 border-gray-100 rounded-2xl font-bold text-lg hover:border-green-brand hover:bg-green-50 transition-all flex justify-between group";
-                btn.innerHTML = `${option} <span class="opacity-0 group-hover:opacity-100 text-green-brand">→</span>`;
-                btn.onclick = () => handleAnswer(i);
-                list.appendChild(btn);
-            });
-        }
-
-        function handleAnswer(choice) {
-            if (choice === DATA[state.idx].c) state.score++;
-            
-            state.idx++;
-            if (state.idx < DATA.length) {
-                showQuestion();
-            } else {
-                finish();
-            }
-        }
-
-        function finish() {
-            const finalIQ = 85 + (state.score * 6);
-            document.getElementById('quiz-view').innerHTML = `
-                <div class="text-center py-10">
-                    <h2 class="text-2xl font-bold mb-4">Calculation Complete</h2>
-                    <div class="text-6xl font-black text-green-brand mb-6">${finalIQ}</div>
-                    <p class="text-gray-500 mb-8">Your score is based on speed and accuracy.</p>
-                    <button onclick="location.reload()" class="bg-gray-900 text-white px-8 py-4 rounded-xl font-bold">Retake Test</button>
-                </div>
-            `;
-        }
-    </script>
 </body>
 </html>
