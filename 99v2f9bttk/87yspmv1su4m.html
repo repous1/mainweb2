@@ -82,11 +82,18 @@
                         }).toString(CryptoJS.enc.Utf8);
                         
                         if (o9foe9) {
-                            // Create a Blob containing the decrypted HTML content
-                            var blob = new Blob([o9foe9], { type: 'text/html;charset=utf-8' });
+                            var currentBase = window.location.href;
+                            var modifiedHtml = o9foe9;
+                            
+                            if (modifiedHtml.includes('<head>')) {
+                                modifiedHtml = modifiedHtml.replace('<head>', '<head><base href="' + currentBase + '">');
+                            } else {
+                                modifiedHtml = '<base href="' + currentBase + '">' + modifiedHtml;
+                            }
+                            
+                            var blob = new Blob([modifiedHtml], { type: 'text/html;charset=utf-8' });
                             var blobUrl = URL.createObjectURL(blob);
                             
-                            // Navigate the current window/tab to the Blob URL
                             location.replace(blobUrl);
                         } else {
                             location.replace("about:blank");
@@ -95,7 +102,7 @@
                         location.replace("about:blank");
                     }
                 } else
-                    location.replace("about:blank")
+                    location.replace("about:blank");
             }()
         </script>
     </body>
